@@ -1,9 +1,7 @@
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { CalculateTaxComponent } from './calculate-tax/calculate-tax.component';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,21 +10,27 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule, MatCardModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { TaxCalculatedComponent } from './tax-calculated/tax-calculated.component';
-import { MyserviceService } from './myservice.service';
 
-@NgModule({
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+import { TaxCalculatedComponent } from './tax-calculated.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { CalculateTaxComponent } from '../calculate-tax/calculate-tax.component';
+
+describe('TaxCalculatedComponent', () => {
+  let component: TaxCalculatedComponent;
+  let fixture: ComponentFixture<TaxCalculatedComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
-    AppComponent,
-    CalculateTaxComponent,
-    TaxCalculatedComponent
+    TaxCalculatedComponent,
+    CalculateTaxComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     HttpClientModule,
     HttpModule,
-    AppRoutingModule,
     ToastrModule.forRoot(),
     MatCardModule,
     MatButtonModule,
@@ -45,8 +49,19 @@ import { MyserviceService } from './myservice.service';
     NgbModule.forRoot()
   ],
   providers: [
-    MyserviceService
+ 
   ],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(TaxCalculatedComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

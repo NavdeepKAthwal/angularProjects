@@ -1,0 +1,26 @@
+.main-div {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mat-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  width: 700px;
+}
+
+.mat-card-header {
+  background: green;
+  justify-content: center;
+  align-items: center;
+}
+.mat-form-field {
+  min-width: 100%;
+}
+.mat-card-title {
+  color: white;
+}

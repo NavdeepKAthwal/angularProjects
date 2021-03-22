@@ -1,0 +1,10 @@
+{
+    "/live": {
+      "target": "http://apilayer.net/api/live",
+      "secure": true,
+      "pathRewrite": {
+      "^/live": ""
+    },
+      "changeOrigin": true
+    }
+  }
